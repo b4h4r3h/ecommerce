@@ -1,0 +1,6 @@
+[submodule "ant-design"]
+	path = ant-design
+	url = https://github.com/b4h4r3h/ecommerce.git
+[submodule "antd"]
+	path = antd
+	url = https://github.com/b4h4r3h/ecommerce.git
