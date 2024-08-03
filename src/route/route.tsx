@@ -1,9 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
+import Home from "../app/home/Home";
 
 
 export const router = createBrowserRouter([
     {
-    //   element: <Team />,
+      element: <Home />,
   
       // when the URL matches this segment
       path: "",
