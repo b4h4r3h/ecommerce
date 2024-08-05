@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@iconify-json/mdi": "^1.1.68",
+    "@iconify-json/solar": "^1.1.10",
+    "@iconify/json": "^2.2.234",
     "@tanstack/react-query": "^5.51.18",
     "@tanstack/react-query-devtools": "^5.51.18",
     "antd": "^5.19.4",
@@ -19,6 +22,7 @@
     "react-router-dom": "^6.26.0"
   },
   "devDependencies": {
+    "@iconify/tailwind": "^1.1.2",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
