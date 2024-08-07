@@ -1,4 +1,5 @@
 import { Layout } from 'antd';
+import { Outlet } from 'react-router-dom';
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -26,17 +27,24 @@ const contentStyle: React.CSSProperties = {
   };
   
   const layoutStyle = {
-    borderRadius: 8,
-    overflow: 'hidden',
-    width: 'calc(50% - 8px)',
-    maxWidth: 'calc(50% - 8px)',
+    // borderRadius: 8,
+    // overflow: 'hidden',
+    height: "100dvh"
+    // width: 'calc(50% - 8px)',
+    // maxWidth: 'calc(50% - 8px)',
   };
 
 const LandingLayout = () => {
-    <Layout style={layoutStyle}>
-    <Header style={headerStyle}>Header</Header>
-    <Content style={contentStyle}>Content</Content>
-    <Footer style={footerStyle}>Footer</Footer>
+  return (
+    <Layout style={layoutStyle} className='bg-white'>
+    <Header >Header</Header>
+    <Content>
+    <div className='container m-auto'>
+    <Outlet/>
+    </div>
+    </Content>
+    <Footer >Footer</Footer>
   </Layout>
+  )
 }
 export default LandingLayout

@@ -9,9 +9,10 @@ axiosInstance.interceptors.request.use(async (request) => {
     return request
 })
 
-axiosInstance.interceptors.response.use(async (response) => {
-    console.log(response)
-    // if (response.data.isSuccess == false) {
-    // }
-})
+// axiosInstance.interceptors.response.use(async (response) => {
+//     //TODO
+//     console.log(response)
+//     // if (response.data.isSuccess == false) {
+//     // }
+// })
 
