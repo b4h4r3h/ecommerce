@@ -29,7 +29,7 @@ const contentStyle: React.CSSProperties = {
   const layoutStyle = {
     // borderRadius: 8,
     // overflow: 'hidden',
-    height: "100dvh"
+    height: "100dvh",
     // width: 'calc(50% - 8px)',
     // maxWidth: 'calc(50% - 8px)',
   };

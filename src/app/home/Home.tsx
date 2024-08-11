@@ -8,7 +8,7 @@ const Home :React.FC = () => {
 return (
     <>
     <SecondBanner/>
-    {/* <span className="icon-[solar--adhesive-plaster-bold]"></span> */}
+    
     </>
 )
 }
