@@ -4,11 +4,11 @@ import { Outlet } from 'react-router-dom';
 const { Header, Footer, Sider, Content } = Layout;
 
 const contentStyle: React.CSSProperties = {
-    textAlign: 'center',
-    minHeight: 120,
-    lineHeight: '120px',
-    color: '#fff',
-    backgroundColor: '#0958d9',
+    // textAlign: 'center',
+    minHeight: "unset",
+    // lineHeight: '120px',
+    // color: '#fff',
+    // backgroundColor: '#0958d9',
   };
 
   const headerStyle: React.CSSProperties = {
@@ -37,8 +37,8 @@ const contentStyle: React.CSSProperties = {
 const LandingLayout = () => {
   return (
     <Layout style={layoutStyle} className='bg-white'>
-    <Header >Header</Header>
-    <Content>
+    <Header>Header</Header>
+    <Content style={contentStyle}>
     <div className='container m-auto'>
     <Outlet/>
     </div>
