@@ -19,7 +19,8 @@
     "axios": "^1.7.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.26.0"
+    "react-router-dom": "^6.26.0",
+    "swiper": "^11.1.9"
   },
   "devDependencies": {
     "@iconify/tailwind": "^1.1.2",

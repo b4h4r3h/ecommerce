@@ -2,19 +2,19 @@ import { Card } from 'antd';
 const { Meta } = Card;
 
 const ProductCard: React.FC<{
-
-}> = ({}) => {
+  image: string;
+  price: number;
+  title: string;
+}> = ({image, price, title}) => {
     return (
-        <Card
-        hoverable
-        style={{ width: 240 }}
-        cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-        actions={[
-            <p>click</p>
-          ]}
-      >
-        <Meta title="Europe Street beat" description="www.instagram.com" />
-      </Card>
+      <div>
+        <img src={image}/>
+        <span>{title}</span>
+        <div>
+        <span>{price}</span>
+        <p>button</p>
+        </div>
+      </div>
     )
 }
 export default ProductCard
