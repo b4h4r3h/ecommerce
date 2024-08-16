@@ -2,7 +2,7 @@ import secondBannerImg from "../../../assets/image/second-banner-img.png"
 import { Link } from "react-router-dom"
 const SecondBanner: React.FC = () => {
     return (
-        <div className="bg-[#DDF6C9] flex items-center py-12 px-10 justify-between mt-6 rounded-xl">
+        <div className="bg-[#DDF6C9] flex items-center h-[416px] px-10 justify-between mt-6 rounded-xl">
             <img src={secondBannerImg}/>
             <div className="flex flex-col gap-6">
                 <p className="text-5xl font-extrabold text-text-dark">UNIQUE JEWELRY</p>

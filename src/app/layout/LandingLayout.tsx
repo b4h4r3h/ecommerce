@@ -43,7 +43,7 @@ const LandingLayout = () => {
     <Outlet/>
     </div>
     </Content>
-    <Footer >Footer</Footer>
+    <Footer className='mt-9' >Footer</Footer>
   </Layout>
   )
 }

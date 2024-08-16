@@ -12,6 +12,9 @@
   :root {
     --color-text-dark: #111111;
     --color-gray-middle: #e4e4e4;
+    --color-gray-low: #F0F0F0;
+    --color-gray-light: #FAFAFA;
+    --color-primary: #F3BC2F;
   }
 
   a {
@@ -53,6 +56,16 @@
   button:focus,
   button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
+  }
+
+  .product-swiper > .swiper-wrapper > .swiper-slide{
+    margin-right: 16px !important;
+    width: 310px !important;
+    padding-bottom: 8px !important;
+  }
+
+  .swiper-pagination-bullet-active{
+    background: var(--color-primary) !important;
   }
 
   .swiper-button-prev{

@@ -2,7 +2,7 @@ import firstBannerImg from "../../../assets/image/first-banner-img.png"
 import { Link } from "react-router-dom"
 const FirstBanner: React.FC = () => {
     return (
-        <div className="bg-[#F8D1BD] flex items-center py-12 px-10 justify-between mt-6 rounded-xl">
+        <div className="bg-[#ffe0d0] flex items-center h-[416px] px-10 justify-between mt-6 rounded-xl">
             <img src={firstBannerImg}/>
             <div className="flex flex-col gap-6">
                 <p className="text-5xl font-extrabold text-text-dark">MAKE YOUR OWN STYLE</p>

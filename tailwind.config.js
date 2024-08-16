@@ -8,6 +8,9 @@ export default {
     extend: {
       colors: {
         "text-dark": "var(--color-text-dark)",
+        "gray-middle": "var(--color-gray-middle)",
+        "gray-low": "var(--color-gray-low)",
+        "gray-light": "var(--color-gray-light)",
       },
       boxShadow: {
         "buttonShadow": "5px 5px 0 0 #000000"
