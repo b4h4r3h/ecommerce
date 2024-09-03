@@ -10,6 +10,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { useEffect, useState } from "react";
 import CategoriesCard from "./components/CategoriesCard";
 import Result from "../components/Result";
+import Title from "../components/Title";
 
 const Home: React.FC = () => {
   const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
@@ -51,9 +52,7 @@ const Home: React.FC = () => {
     <>
       <BannerSwiper />
       <section className="container mx-auto px-4">
-        <h2 className="text-2xl font-bold text-center mt-6 mb-8 text-text-dark">
-          Best Sellers!
-        </h2>
+        <Title title="Best Sellers!"/>
         {allProductsLoading ? (
           <div className="w-full flex gap-4 justify-center">
             {screenWidth < 768
@@ -104,6 +103,7 @@ const Home: React.FC = () => {
             ))}
           </Swiper>
         )}
+        <Title title="Categories"/>
         <CategoriesCard/>
       </section>
     </>
