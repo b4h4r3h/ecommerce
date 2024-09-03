@@ -7,9 +7,7 @@ import { RouterProvider } from 'react-router-dom'
 import { router } from './route/route'
 
 function App() {
-  // useEffect(() => {
-  //   getAllProducts()
-  // },[])
+
   return <RouterProvider router={router}/>
 }
 
