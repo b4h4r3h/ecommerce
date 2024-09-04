@@ -9,60 +9,72 @@ const CategoriesCard: React.FC = () => {
   } = useAllCategories();
   console.log(allCategoriesData);
 
+  if (allCategoriesLoading) {
+    return (
+      <div className="flex gap-4 sm:gap-6 lg:gap-12 xl:gap-16 2xl:gap-24 justify-center">
+        {
+          Array.from({ length: 4 }).map(() => (
+            <div>
+            <span className="block w-14 h-14 sm:w-16 sm:h-16 lg:w-28 lg:h-28 bg-white border-2 shadow-loadingCardShadow rounded-xl m-auto"></span>
+            <span className="block w-16 sm:w-28 lg:w-36 bg-gray-middle h-3 rounded-lg mt-4"></span>
+            </div>
+          ))
+        }
+
+      </div>
+    )
+  }
+
   return (
-    <div className="flex justify-center ">
+    <section className="flex justify-center">
       {allCategoriesData?.map((item, i) => {
         let content;
         switch (item) {
           case "electronics":
             content = (
               <>
-                <div className="bg-green-100 inline-block px-5 py-4">
+                <div className="bg-green-100 inline-block p-2 sm:p-3 lg:p-5 shadow-buttonShadow border-2 border-text-dark rounded-xl">
                   <span
-                    className="icon-[solar--display-outline] text-green-800"
-                    style={{ width: "56px", height: "56px" }}
+                    className="block icon-[solar--display-outline] text-green-800 w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14"
                   ></span>
                 </div>
-                <p className="w-28 text-center">electronics</p>
+                <p className="w-16 sm:w-28 lg:w-32 sm:text-sm lg:text-base text-center">electronics</p>
               </>
             );
             break;
           case "jewelery":
             content = (
               <>
-                <div className="bg-orange-100 inline-block px-5 py-4">
+                <div className="bg-rose-100 inline-block p-2 sm:p-3 lg:p-5 shadow-buttonShadow border-2 border-text-dark rounded-xl">
                   <span
-                    className="icon-[solar--crown-outline] text-orange-600"
-                    style={{ width: "56px", height: "56px" }}
+                    className="block icon-[solar--crown-outline] text-rose-600 w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14"
                   ></span>
                 </div>
-                <p className="w-28 text-center">jewelery</p>
+                <p className="w-16 sm:w-28 lg:w-32 sm:text-sm lg:text-base text-center">jewelery</p>
               </>
             );
             break;
           case "men's clothing":
             content = (
               <>
-                <div className="bg-sky-100 inline-block px-5 py-4">
+                <div className="bg-sky-100 inline-block p-2 sm:p-3 lg:p-5 shadow-buttonShadow border-2 border-text-dark rounded-xl">
                   <span
-                    className="icon-[solar--t-shirt-outline] text-sky-800"
-                    style={{ width: "56px", height: "56px" }}
+                    className="block icon-[solar--t-shirt-outline] text-sky-800 w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14"
                   ></span>
                 </div>
-                <p className="w-28 text-center">men's clothing</p>
+                <p className="w-16 sm:w-28 lg:w-32 sm:text-sm lg:text-base text-center">men's clothing</p>
               </>
             );
             break;
           case "women's clothing":
             content = (
               <>
-                <div className="bg-fuchsia-100 inline-block px-5 py-4">
+                <div className="bg-fuchsia-100 inline-block p-2 sm:p-3 lg:p-5 shadow-buttonShadow border-2 border-text-dark rounded-xl">
                   <span
-                    className="icon-[solar--skirt-outline] text-fuchsia-800"
-                    style={{ width: "56px", height: "56px" }}
+                    className="block icon-[solar--skirt-outline] text-fuchsia-800 w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14"
                   ></span>
                 </div>
-                <p className="w-28 text-center">women's clothing</p>
+                <p className="w-16 sm:w-28 lg:w-32 sm:text-sm lg:text-base text-center">women's clothing</p>
               </>
             );
             break;
@@ -71,12 +83,12 @@ const CategoriesCard: React.FC = () => {
         }
 
         return (
-            <div className="flex flex-col items-center px-10" key={i}>
-              {content}
-            </div>
+          <div className="flex flex-col items-center px-2 sm:px-4 lg:px-10 gap-3" key={i}>
+            {content}
+          </div>
         );
       })}
-    </div>
+    </section>
   );
 };
 

@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Pagination, Navigation } from "swiper/modules";
 import { useEffect, useState } from "react";
 import CategoriesCard from "./components/CategoriesCard";
 import Result from "../components/Result";
@@ -51,23 +51,40 @@ const Home: React.FC = () => {
   return (
     <>
       <BannerSwiper />
+      <Title title="Categories"/>
+      <CategoriesCard/>
       <section className="container mx-auto px-4">
         <Title title="Best Sellers!"/>
         {allProductsLoading ? (
           <div className="w-full flex gap-4 justify-center">
             {screenWidth < 768
               ? 
-              <span className="w-full bg-gray-low h-80 rounded-lg"></span>
+              <div className="w-full bg-white border-2 shadow-loadingCardShadow h-96 rounded-xl">
+              <span className="block w-[calc(100%-10%)] m-auto bg-gray-middle h-56 mt-4 rounded-lg"></span>
+              <span className="block w-[calc(100%-10%)] m-auto bg-gray-middle h-3 mt-4 rounded-lg"></span>
+              <span className="block w-[calc(100%-10%)] m-auto bg-gray-middle h-3 mt-4 rounded-lg"></span>
+              <div className="flex px-4 justify-between items-end mt-2">
+              <span className="block w-24 bg-gray-middle h-3 mt-4 rounded-lg"></span>
+              <span className="block w-12 bg-gray-middle h-12 mt-4 rounded-lg"></span>
+              </div>
+            </div>
               : 
-              Array.from({ length: 4 }).map((item) => (
-                // <SkeletonImage style={{ height: "320px", width:"300px"}} active />
-                <span className="w-full bg-gray-low h-96 rounded-lg"></span>
+              Array.from({ length: 4 }).map(() => (
+                <div className="w-full bg-white border-2 shadow-loadingCardShadow h-96 rounded-xl">
+                  <span className="block w-[calc(100%-10%)] m-auto bg-gray-middle h-56 mt-4 rounded-lg"></span>
+                  <span className="block w-[calc(100%-10%)] m-auto bg-gray-middle h-3 mt-4 rounded-lg"></span>
+                  <span className="block w-[calc(100%-10%)] m-auto bg-gray-middle h-3 mt-4 rounded-lg"></span>
+                  <div className="flex px-4 justify-between items-end mt-2">
+                  <span className="block w-24 bg-gray-middle h-3 mt-4 rounded-lg"></span>
+                  <span className="block w-12 bg-gray-middle h-12 mt-4 rounded-lg"></span>
+                  </div>
+                </div>
               ))
               }
           </div>
         ) : (
           <Swiper
-            slidesPerView={shouldShowPagination ? 1 : 2}
+            slidesPerView={1}
             spaceBetween={shouldShowPagination ? 8 : 16}
             pagination={shouldShowPagination ? { dynamicBullets: true } : false}
             navigation={shouldShowPagination ? false : true}
@@ -82,7 +99,7 @@ const Home: React.FC = () => {
                 spaceBetween: 16,
               },
               1280: {
-                slidesPerView: 3.8,
+                slidesPerView: 3.6,
                 spaceBetween: 16,
               },
               1536: {
@@ -103,8 +120,6 @@ const Home: React.FC = () => {
             ))}
           </Swiper>
         )}
-        <Title title="Categories"/>
-        <CategoriesCard/>
       </section>
     </>
   );

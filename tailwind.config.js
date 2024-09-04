@@ -14,6 +14,8 @@ export default {
         "gray-middle": "var(--color-gray-middle)",
         "gray-low": "var(--color-gray-low)",
         "gray-light": "var(--color-gray-light)",
+        "primary-light": "var(--color-primary-light)",
+        "primary": "var(--color-primary)",
         "error-main": "var(--color-error-main)",
         "error-light": "var(--color-error-light)",
         "success-main": "var(--color-success-main)",
@@ -21,6 +23,7 @@ export default {
       },
       boxShadow: {
         "buttonShadow": "5px 5px 0 0 #000000",
+        "loadingCardShadow": "5px 5px 0 0 #bdbdbd",
         "errorBoxShadow": "5px 5px 0 0 #CC1D1D"
       }
     },

@@ -8,7 +8,8 @@ const contentStyle: React.CSSProperties = {
     minHeight: "unset",
     // lineHeight: '120px',
     // color: '#fff',
-    // backgroundColor: '#0958d9',
+    backgroundColor: 'var(--color-primary-light)',
+    paddingBottom:'48px'
   };
 
   const headerStyle: React.CSSProperties = {
@@ -22,8 +23,7 @@ const contentStyle: React.CSSProperties = {
   
   const footerStyle: React.CSSProperties = {
     textAlign: 'center',
-    color: '#fff',
-    backgroundColor: '#4096ff',
+    backgroundColor: '#fff',
   };
   
   const layoutStyle = {
@@ -43,7 +43,7 @@ const LandingLayout = () => {
     <Outlet/>
     </div>
     </Content>
-    <Footer className='mt-9' >Footer</Footer>
+    <Footer className='bg-white'>Footer</Footer>
   </Layout>
   )
 }
