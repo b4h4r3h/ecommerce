@@ -1,4 +1,4 @@
-import { Fragment } from "react/jsx-runtime";
+import { Link } from "react-router-dom";
 import { useAllCategories } from "../hooks/useAllCategories";
 
 const CategoriesCard: React.FC = () => {
@@ -33,11 +33,11 @@ const CategoriesCard: React.FC = () => {
           case "electronics":
             content = (
               <>
-                <div className="bg-green-100 inline-block p-2 sm:p-3 lg:p-5 shadow-buttonShadow border-2 border-text-dark rounded-xl">
+                <Link to="products/category/electronics" className="bg-green-100 inline-block p-2 sm:p-3 lg:p-5 shadow-buttonShadow border-2 border-text-dark rounded-xl">
                   <span
                     className="block icon-[solar--display-outline] text-green-800 w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14"
                   ></span>
-                </div>
+                </Link>
                 <p className="w-16 sm:w-28 lg:w-32 sm:text-sm lg:text-base text-center">electronics</p>
               </>
             );
@@ -45,11 +45,11 @@ const CategoriesCard: React.FC = () => {
           case "jewelery":
             content = (
               <>
-                <div className="bg-rose-100 inline-block p-2 sm:p-3 lg:p-5 shadow-buttonShadow border-2 border-text-dark rounded-xl">
+                <Link to="products/category/jewelery" className="bg-rose-100 inline-block p-2 sm:p-3 lg:p-5 shadow-buttonShadow border-2 border-text-dark rounded-xl">
                   <span
                     className="block icon-[solar--crown-outline] text-rose-600 w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14"
                   ></span>
-                </div>
+                </Link>
                 <p className="w-16 sm:w-28 lg:w-32 sm:text-sm lg:text-base text-center">jewelery</p>
               </>
             );
@@ -57,11 +57,11 @@ const CategoriesCard: React.FC = () => {
           case "men's clothing":
             content = (
               <>
-                <div className="bg-sky-100 inline-block p-2 sm:p-3 lg:p-5 shadow-buttonShadow border-2 border-text-dark rounded-xl">
+                <Link to="products/category/men's clothing" className="bg-sky-100 inline-block p-2 sm:p-3 lg:p-5 shadow-buttonShadow border-2 border-text-dark rounded-xl">
                   <span
                     className="block icon-[solar--t-shirt-outline] text-sky-800 w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14"
                   ></span>
-                </div>
+                </Link>
                 <p className="w-16 sm:w-28 lg:w-32 sm:text-sm lg:text-base text-center">men's clothing</p>
               </>
             );
@@ -69,11 +69,11 @@ const CategoriesCard: React.FC = () => {
           case "women's clothing":
             content = (
               <>
-                <div className="bg-fuchsia-100 inline-block p-2 sm:p-3 lg:p-5 shadow-buttonShadow border-2 border-text-dark rounded-xl">
+                <Link to="products/category/women's clothing" className="bg-fuchsia-100 inline-block p-2 sm:p-3 lg:p-5 shadow-buttonShadow border-2 border-text-dark rounded-xl">
                   <span
                     className="block icon-[solar--skirt-outline] text-fuchsia-800 w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14"
                   ></span>
-                </div>
+                </Link>
                 <p className="w-16 sm:w-28 lg:w-32 sm:text-sm lg:text-base text-center">women's clothing</p>
               </>
             );
