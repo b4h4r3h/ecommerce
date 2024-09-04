@@ -1,11 +1,10 @@
-import { Card } from 'antd';
-const { Meta } = Card;
+import React, { memo } from 'react';
 
 const ProductCard: React.FC<{
   image: string;
   price: number;
   title: string;
-}> = ({image, price, title}) => {
+}> = memo(({image, price, title}) => {
     return (
       <div className='p-4 border-2 border-text-dark rounded-xl shadow-buttonShadow bg-white'>
         <img className='w-48 h-64 m-auto' src={image}/>
@@ -16,5 +15,5 @@ const ProductCard: React.FC<{
         </div>
       </div>
     )
-}
+})
 export default ProductCard

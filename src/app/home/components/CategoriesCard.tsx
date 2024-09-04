@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useAllCategories } from "../hooks/useAllCategories";
+import Result from "../../components/Result";
 
 const CategoriesCard: React.FC = () => {
   const {
@@ -7,14 +8,28 @@ const CategoriesCard: React.FC = () => {
     isError: allCategoriesError,
     isLoading: allCategoriesLoading,
   } = useAllCategories();
-  console.log(allCategoriesData);
+
+  if (allCategoriesError) {
+    return (
+      <Result
+      icon={
+          <span
+          className="icon-[solar--close-circle-bold] text-error-main"
+          style={{ width: "68px", height: "68px" }}
+        ></span>
+      }
+      status="error"
+      description="Failed to fetch data."
+      />
+    )
+  }
 
   if (allCategoriesLoading) {
     return (
       <div className="flex gap-4 sm:gap-6 lg:gap-12 xl:gap-16 2xl:gap-24 justify-center">
         {
-          Array.from({ length: 4 }).map(() => (
-            <div>
+          Array.from({ length: 4 }).map((item,i) => (
+            <div key={i}>
             <span className="block w-14 h-14 sm:w-16 sm:h-16 lg:w-28 lg:h-28 bg-white border-2 shadow-loadingCardShadow rounded-xl m-auto"></span>
             <span className="block w-16 sm:w-28 lg:w-36 bg-gray-middle h-3 rounded-lg mt-4"></span>
             </div>

@@ -69,8 +69,8 @@ const Home: React.FC = () => {
               </div>
             </div>
               : 
-              Array.from({ length: 4 }).map(() => (
-                <div className="w-full bg-white border-2 shadow-loadingCardShadow h-96 rounded-xl">
+              Array.from({ length: 4 }).map((item,i) => (
+                <div key={i} className="w-full bg-white border-2 shadow-loadingCardShadow h-96 rounded-xl">
                   <span className="block w-[calc(100%-10%)] m-auto bg-gray-middle h-56 mt-4 rounded-lg"></span>
                   <span className="block w-[calc(100%-10%)] m-auto bg-gray-middle h-3 mt-4 rounded-lg"></span>
                   <span className="block w-[calc(100%-10%)] m-auto bg-gray-middle h-3 mt-4 rounded-lg"></span>

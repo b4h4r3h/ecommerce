@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../app/home/Home";
 import LandingLayout from "../app/layout/LandingLayout";
+import ProductList from "../app/ProductList";
 
 
 export const router = createBrowserRouter([
@@ -15,7 +16,7 @@ export const router = createBrowserRouter([
         },
         {
           path:"products/category/:name",
-          element:<p>hi</p>
+          element:<ProductList/>
         }
       ]
     },
