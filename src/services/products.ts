@@ -10,3 +10,8 @@ export const getAllCategories = async () => {
     const {data} = await axiosInstance.get<string[]>("products/categories")
     return data;
 }
+
+export const getProductDetail = async (id: string) => {
+    const {data} = await axiosInstance.get<GetAllProducts>(`products/${id}`)
+    return data;
+}

@@ -33,54 +33,52 @@ const Home: React.FC = () => {
     isLoading: allProductsLoading,
   } = useAllProducts();
 
-  if (allProductsError) {
-    return (
-      <Result
-      icon={
-          <span
-          className="icon-[solar--close-circle-bold] text-error-main"
-          style={{ width: "68px", height: "68px" }}
-        ></span>
-      }
-      status="error"
-      description="Failed to fetch data."
-      />
-    )
-  }
 
   return (
     <>
       <BannerSwiper />
-      <Title title="Categories"/>
-      <CategoriesCard/>
+      <Title title="Categories" />
+      <CategoriesCard />
+      {allProductsError && (
+        <Result
+          icon={
+            <span
+              className="icon-[solar--close-circle-bold] text-error-main"
+              style={{ width: "68px", height: "68px" }}
+            ></span>
+          }
+          status="error"
+          description="Failed to fetch data."
+        />
+      )}
       <section className="container mx-auto px-4">
-        <Title title="Best Sellers!"/>
+        <Title title="Best Sellers!" />
         {allProductsLoading ? (
           <div className="w-full flex gap-4 justify-center">
             {screenWidth < 768
-              ? 
+              ?
               <div className="w-full bg-white border-2 shadow-loadingCardShadow h-96 rounded-xl">
-              <span className="block w-[calc(100%-10%)] m-auto bg-gray-middle h-56 mt-4 rounded-lg"></span>
-              <span className="block w-[calc(100%-10%)] m-auto bg-gray-middle h-3 mt-4 rounded-lg"></span>
-              <span className="block w-[calc(100%-10%)] m-auto bg-gray-middle h-3 mt-4 rounded-lg"></span>
-              <div className="flex px-4 justify-between items-end mt-2">
-              <span className="block w-24 bg-gray-middle h-3 mt-4 rounded-lg"></span>
-              <span className="block w-12 bg-gray-middle h-12 mt-4 rounded-lg"></span>
+                <span className="block w-[calc(100%-10%)] m-auto bg-gray-middle h-56 mt-4 rounded-lg"></span>
+                <span className="block w-[calc(100%-10%)] m-auto bg-gray-middle h-3 mt-4 rounded-lg"></span>
+                <span className="block w-[calc(100%-10%)] m-auto bg-gray-middle h-3 mt-4 rounded-lg"></span>
+                <div className="flex px-4 justify-between items-end mt-2">
+                  <span className="block w-24 bg-gray-middle h-3 mt-4 rounded-lg"></span>
+                  <span className="block w-12 bg-gray-middle h-12 mt-4 rounded-lg"></span>
+                </div>
               </div>
-            </div>
-              : 
-              Array.from({ length: 4 }).map((item,i) => (
+              :
+              Array.from({ length: 4 }).map((item, i) => (
                 <div key={i} className="w-full bg-white border-2 shadow-loadingCardShadow h-96 rounded-xl">
                   <span className="block w-[calc(100%-10%)] m-auto bg-gray-middle h-56 mt-4 rounded-lg"></span>
                   <span className="block w-[calc(100%-10%)] m-auto bg-gray-middle h-3 mt-4 rounded-lg"></span>
                   <span className="block w-[calc(100%-10%)] m-auto bg-gray-middle h-3 mt-4 rounded-lg"></span>
                   <div className="flex px-4 justify-between items-end mt-2">
-                  <span className="block w-24 bg-gray-middle h-3 mt-4 rounded-lg"></span>
-                  <span className="block w-12 bg-gray-middle h-12 mt-4 rounded-lg"></span>
+                    <span className="block w-24 bg-gray-middle h-3 mt-4 rounded-lg"></span>
+                    <span className="block w-12 bg-gray-middle h-12 mt-4 rounded-lg"></span>
                   </div>
                 </div>
               ))
-              }
+            }
           </div>
         ) : (
           <Swiper
@@ -112,6 +110,7 @@ const Home: React.FC = () => {
             {allProductsData?.map((item) => (
               <SwiperSlide key={item.id}>
                 <ProductCard
+                  id={item.id}
                   image={item.image}
                   price={item.price}
                   title={item.title}

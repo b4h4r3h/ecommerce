@@ -97,6 +97,10 @@
     border: 1px solid var();
   }
 
+  .swiper.swiper-initialized.swiper-horizontal.mySwiper{
+    padding: 8px !important;
+  }
+
   @media (prefers-color-scheme: light) {
     :root {
       color: #213547;
