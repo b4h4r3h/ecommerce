@@ -41,7 +41,7 @@ const CategoriesCard: React.FC = () => {
   }
 
   return (
-    <section className="flex justify-center">
+    <section className="grid grid-cols-2 gap-y-6 md:flex md:justify-center">
       {allCategoriesData?.map((item, i) => {
         let content;
         switch (item) {
@@ -53,7 +53,7 @@ const CategoriesCard: React.FC = () => {
                     className="block icon-[solar--display-outline] text-green-800 w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14"
                   ></span>
                 </Link>
-                <p className="w-16 sm:w-28 lg:w-32 sm:text-sm lg:text-base text-center">electronics</p>
+                <p className="sm:w-28 lg:w-32 sm:text-sm lg:text-base text-center">electronics</p>
               </>
             );
             break;
@@ -65,7 +65,7 @@ const CategoriesCard: React.FC = () => {
                     className="block icon-[solar--crown-outline] text-rose-600 w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14"
                   ></span>
                 </Link>
-                <p className="w-16 sm:w-28 lg:w-32 sm:text-sm lg:text-base text-center">jewelery</p>
+                <p className="sm:w-28 lg:w-32 sm:text-sm lg:text-base text-center">jewelery</p>
               </>
             );
             break;
@@ -77,7 +77,7 @@ const CategoriesCard: React.FC = () => {
                     className="block icon-[solar--t-shirt-outline] text-sky-800 w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14"
                   ></span>
                 </Link>
-                <p className="w-16 sm:w-28 lg:w-32 sm:text-sm lg:text-base text-center">men's clothing</p>
+                <p className="w-28 sm:w-28 lg:w-32 sm:text-sm lg:text-base text-center">men's clothing</p>
               </>
             );
             break;
@@ -89,7 +89,7 @@ const CategoriesCard: React.FC = () => {
                     className="block icon-[solar--skirt-outline] text-fuchsia-800 w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14"
                   ></span>
                 </Link>
-                <p className="w-16 sm:w-28 lg:w-32 sm:text-sm lg:text-base text-center">women's clothing</p>
+                <p className="w-28 sm:w-28 lg:w-32 sm:text-sm lg:text-base text-center">women's clothing</p>
               </>
             );
             break;
