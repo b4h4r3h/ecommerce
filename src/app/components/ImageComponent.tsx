@@ -14,14 +14,17 @@ import { memo, useEffect, useState } from "react";
 //     />
 //   </svg>
 // );
-const ImageComponent:React.FC<{src:string; className?: string}> = memo(({ src, className }) => {
+const ImageComponent: React.FC<{
+  src: string | undefined;
+  className?: string;
+}> = memo(({ src, className }) => {
   const [error, setError] = useState<boolean>(false);
   const [isloading, setIsLoading] = useState<boolean>(false);
   const onError = () => setError(true);
-  const onLoad = () => setIsLoading(true)
+  const onLoad = () => setIsLoading(true);
   useEffect(() => {
     setError(false);
-    setIsLoading(false)
+    setIsLoading(false);
   }, [src]);
 
   if (error)
@@ -30,16 +33,11 @@ const ImageComponent:React.FC<{src:string; className?: string}> = memo(({ src, c
         {/* {icon} */}
       </div>
     );
-    if (isloading) {
-        ""
-    }
+  // if (isloading) {
+  //   return <span className="w-1 h-2 bg-black"></span>;
+  // }
   return (
-    <img
-      src={`data:image/png;base64,${src}`}
-      onError={onError}
-      className={className}
-      onLoad={onLoad}
-    />
+    <img src={src} onError={onError} className={className} onLoad={onLoad} />
   );
 });
 

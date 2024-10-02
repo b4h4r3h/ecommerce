@@ -4,6 +4,8 @@ import { useSpecificCategory } from "./hooks/useSpecificCategory";
 import Result from "./components/Result";
 import { useNavigate } from "react-router-dom";
 import Title from "./components/Title";
+import { Breadcrumb } from "antd";
+import { useParams } from "react-router-dom";
 
 const ProductList: React.FC<{}> = () => {
   const {
@@ -12,11 +14,8 @@ const ProductList: React.FC<{}> = () => {
     isError: specificCategoryError,
   } = useSpecificCategory();
 
-  const navigate = useNavigate();
-
-  const handleBack = () => {
-    navigate(-1);
-  };
+  const params = useParams();
+  const specificCategoryName = params.name
 
   //TODO
   if (specificCategoryLoading) {
@@ -49,9 +48,18 @@ const ProductList: React.FC<{}> = () => {
 
   return (
     <Fragment>
-      <Title title="back" hasBack={true} onClick={handleBack} />
+      {/* <Title title="back" hasBack={true} onClick={handleBack} /> */}
+      <Breadcrumb className="mt-6"
+        items={[
+          {
+            title: <a href="/">Home</a>,
+          },
+          {
+            title: specificCategoryName,
+          },
+        ]}
+      />
       <section className="grid grid-cols-4 gap-6 mt-6">
-        {/* <p onClick={handleBack}>heeeeeeeeeeey baaaaaaaaaaack</p> */}
         {specificCategoryData?.map((item) => (
           <Fragment key={item.id}>
             <ProductCard

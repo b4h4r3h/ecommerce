@@ -19,6 +19,9 @@
     --color-gray-light: #FAFAFA;
     --color-primary: #F3BC2F;
     --color-primary-light: #fefaf0;
+    --color-secondary: #447120;
+    --color-secondary-light: #DDF6C9;
+    --color-secondary-low: #c4e4a9;
     --color-error-main: #CC1D1D;
     --color-error-light: #fff0f0;
     --color-success-main: #1C9121;
@@ -54,12 +57,11 @@
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #1a1a1a;
     cursor: pointer;
     transition: border-color 0.25s;
   }
-  button:hover {
-    border-color: #646cff;
+  .ant-btn-primary:hover {
+    color: #111111 !important
   }
   button:focus,
   button:focus-visible {
