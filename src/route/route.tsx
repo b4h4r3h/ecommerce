@@ -1,9 +1,23 @@
+import { lazy, Suspense, ReactNode } from "react";
 import { createBrowserRouter } from "react-router-dom";
-import Home from "../app/home/Home";
 import LandingLayout from "../app/layout/LandingLayout";
-import ProductList from "../app/ProductList";
-import ProductDetail from "../app/ProductDetail";
+// import ProductDetail from "../app/ProductDetail";
+import Fallback from "../app/components/Fallback";
 
+const Home = lazy(() => import("../app/home/Home"));
+const ProductList = lazy(() => import("../app/ProductList"));
+const ProductDetail = lazy(() => import("../app/ProductDetail"));
+
+interface SuspenseWrapperPropType {
+  component:React.LazyExoticComponent<React.ComponentType<any>>,
+  fallback?: ReactNode;
+}
+
+const SuspenseWrapper: React.FC<SuspenseWrapperPropType> = ({component: Component, fallback=<Fallback/>}) => (
+  <Suspense fallback={fallback}>
+    <Component/>
+  </Suspense>
+)
 
 export const router = createBrowserRouter([
     {
@@ -13,15 +27,15 @@ export const router = createBrowserRouter([
       children:[
         {
           path:"",
-          element:<Home/>
-        },
+          element: <SuspenseWrapper component={Home} />
+        },  
         {
           path:"products/category/:name",
-          element:<ProductList/>
+          element: <SuspenseWrapper component={ProductList} />
         },
         {
           path: "products/:id",
-          element: <ProductDetail/>
+          element: <SuspenseWrapper component={ProductDetail}/>
         }
       ]
     },
