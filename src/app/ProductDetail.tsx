@@ -1,6 +1,9 @@
+import { useDispatch, useSelector } from "react-redux";
 import ImageComponent from "./components/ImageComponent";
 import { useProductDetail } from "./hooks/useProductDetail";
 import { Tag, Button, Breadcrumb } from "antd";
+import { RootState } from "./store/store";
+import { productIncreament } from "../features/cart/cartProductsWithImage";
 
 const ProductDetail: React.FC<{}> = () => {
   const {
@@ -8,6 +11,16 @@ const ProductDetail: React.FC<{}> = () => {
     isLoading: productDetailLoading,
     isError: productDetailError,
   } = useProductDetail();
+
+  const cartProductsWithImage = useSelector((state:RootState) => state.cartProductsWithImage);
+  const dispatch = useDispatch();
+
+  console.log("cartEntity",cartProductsWithImage)
+
+
+  const handleAddProductToCart = (image,title,price,productId,quantity) => {
+    dispatch(productIncreament({image, title, price, productId, quantity}))
+  }
 
   if (productDetailLoading) {
     return (
@@ -85,7 +98,7 @@ const ProductDetail: React.FC<{}> = () => {
           {/* <p className="text-text-dark font-bold text-xl">
           {productDetailData?.price}$
         </p> */}
-          <Button className="h-11 w-96 font-bold text-base" type="primary">
+          <Button onClick={() => handleAddProductToCart(productDetailData?.image,productDetailData?.title,productDetailData?.price,productDetailData?.id,1)} className="h-11 w-96 font-bold text-base" type="primary">
             ADD TO CART - {productDetailData?.price}$
           </Button>
         </div>
