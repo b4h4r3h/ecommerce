@@ -15,7 +15,7 @@ const icon = (
   </svg>
 );
 const ImageComponent: React.FC<{
-  src: string | undefined;
+  src: string | undefined | null;
   className?: string;
 }> = memo(({ src, className }) => {
   const [error, setError] = useState<boolean>(false);
@@ -37,7 +37,7 @@ const ImageComponent: React.FC<{
   //   return <span className="w-1 h-2 bg-black"></span>;
   // }
   return (
-    <img src={src} onError={onError} className={className} onLoad={onLoad} />
+    <img src={src ?? undefined} onError={onError} className={className} onLoad={onLoad} />
   );
 });
 
