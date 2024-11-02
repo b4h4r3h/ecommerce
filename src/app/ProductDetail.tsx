@@ -15,8 +15,7 @@ const ProductDetail: React.FC<{}> = () => {
   const cartProductsWithImage = useSelector((state:RootState) => state.cartProductsWithImage);
   const dispatch = useDispatch();
 
-  console.log("cartEntity",cartProductsWithImage)
-
+  console.log("cartEntity",cartProductsWithImage);
 
   const handleAddProductToCart = (image,title,price,productId,quantity) => {
     dispatch(productIncreament({image, title, price, productId, quantity}))
@@ -24,7 +23,7 @@ const ProductDetail: React.FC<{}> = () => {
 
   if (productDetailLoading) {
     return (
-      <div className="flex gap-4 items-center">
+      <div className="flex gap-4 items-center container m-auto">
         <span className="inline-block w-96 h-[480px] bg-white border-2 shadow-loadingCardShadow rounded-xl"></span>
         <div className="flex-1">
           <span className="block w-96 bg-gray-middle h-4 mt-4 rounded-lg"></span>
@@ -43,7 +42,7 @@ const ProductDetail: React.FC<{}> = () => {
   }
 
   return (
-    <>
+    <div className="container m-auto">
       <Breadcrumb
         className="mt-6"
         items={[
@@ -103,7 +102,7 @@ const ProductDetail: React.FC<{}> = () => {
           </Button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 export default ProductDetail;

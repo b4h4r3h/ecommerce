@@ -9,6 +9,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 const BannerSwiper: React.FC = () => {
   return (
+    <div className="container m-auto">
     <Swiper
       spaceBetween={30}
       centeredSlides={true}
@@ -31,6 +32,7 @@ const BannerSwiper: React.FC = () => {
         <SecondBanner />
       </SwiperSlide>
     </Swiper>
+    </div>
   );
 };
 export default BannerSwiper;

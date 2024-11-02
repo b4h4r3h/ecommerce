@@ -1,5 +1,5 @@
+import { useEffect, useState } from "react";
 import { useAllProducts } from "./hooks/useAllProducts";
-import "../../index.css";
 import ProductCard from "../components/ProductCard";
 import BannerSwiper from "./bannerSwiper/BannerSwiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,25 +7,13 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Pagination, Navigation } from "swiper/modules";
-import { useEffect, useState } from "react";
 import CategoriesCard from "./components/CategoriesCard";
 import Result from "../components/Result";
 import Title from "../components/Title";
+import "../../index.css";
 
 const Home: React.FC = () => {
-  const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
 
-  const shouldShowPagination = screenWidth < 1024;
-
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   const {
     data: allProductsData,
@@ -51,11 +39,12 @@ const Home: React.FC = () => {
           description="Failed to fetch data."
         />
       )}
-      <section className="container mx-auto px-4">
+      {/* <section className="container mx-auto px-4"> */}
+      <section className="mx-auto container px-4">
         <Title title="Best Sellers!" />
         {allProductsLoading ? (
           <div className="w-full flex gap-4 justify-center">
-            {screenWidth < 768
+            {/* {screenWidth < 768
               ?
               <div className="w-full bg-white border-2 shadow-loadingCardShadow h-96 rounded-xl">
                 <span className="block w-[calc(100%-10%)] m-auto bg-gray-middle h-56 mt-4 rounded-lg"></span>
@@ -78,14 +67,15 @@ const Home: React.FC = () => {
                   </div>
                 </div>
               ))
-            }
+            } */}
           </div>
         ) : (
           <Swiper
             slidesPerView={1}
-            spaceBetween={shouldShowPagination ? 8 : 16}
-            pagination={shouldShowPagination ? { dynamicBullets: true } : false}
-            navigation={shouldShowPagination ? false : true}
+            // spaceBetween={shouldShowPagination ? 8 : 16}
+            spaceBetween={8}
+            // pagination={shouldShowPagination ? { dynamicBullets: true } : false}
+            navigation={true}
             modules={[Navigation, Pagination]}
             breakpoints={{
               768: {

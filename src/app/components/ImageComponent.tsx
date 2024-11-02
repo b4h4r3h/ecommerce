@@ -19,25 +19,26 @@ const ImageComponent: React.FC<{
   className?: string;
 }> = memo(({ src, className }) => {
   const [error, setError] = useState<boolean>(false);
-  const [isloading, setIsLoading] = useState<boolean>(false);
+  const [isloading, setIsLoading] = useState<boolean>(true);
   const onError = () => setError(true);
   const onLoad = () => setIsLoading(true);
+
   useEffect(() => {
     setError(false);
     setIsLoading(false);
   }, [src]);
 
-  if (error)
+  if (!src && isloading) {
+    return <span className="w-1 h-2 bg-black"></span>;
+  }
+  if (error )
     return (
       <div className="flex items-center justify-center bg-gray-200 rounded-full min-w-12 min-h-12 max-w-12 max-h-12">
         {icon}
       </div>
     );
-  // if (isloading) {
-  //   return <span className="w-1 h-2 bg-black"></span>;
-  // }
   return (
-    <img src={src ?? undefined} onError={onError} className={className} onLoad={onLoad} />
+    <img key={src} src={src as string} onError={onError}  onLoad={onLoad} className={className}/>
   );
 });
 

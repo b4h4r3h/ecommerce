@@ -11,7 +11,7 @@ const contentStyle: React.CSSProperties = {
     // color: '#fff',
     backgroundColor: 'var(--color-primary-light)',
     marginTop: '56px',
-    paddingBottom:'48px'
+    paddingBottom:'48px',
   };
 
   const headerStyle: React.CSSProperties = {
@@ -33,22 +33,24 @@ const contentStyle: React.CSSProperties = {
     // borderRadius: 8,
     // overflow: 'hidden',
     height: "100dvh",
+    backgroundColor: 'var(--color-primary-light)',
     // width: 'calc(50% - 8px)',
     // maxWidth: 'calc(50% - 8px)',
   };
 
 const LandingLayout = () => {
   return (
-    <Layout style={layoutStyle} className='bg-white'>
-    <Header className='bg-white flex justify-between items-center border-b border-text-dark px-28 fixed w-full z-10'>
+    <Layout style={layoutStyle} >
+    <Header className='bg-white flex justify-between items-center border-b border-text-dark fixed w-full z-10'>
       <HeaderComponent />
     </Header>
     <Content style={contentStyle}>
-    <div className='container m-auto'>
+    {/* <div > */}
+    {/* <div className='m-auto'> */}
     <Outlet/>
-    </div>
+    {/* </div> */}
     </Content>
-    <Footer className='bg-white'>Footer</Footer>
+    {/* <Footer className='bg-white'>Footer</Footer> */}
   </Layout>
   )
 }

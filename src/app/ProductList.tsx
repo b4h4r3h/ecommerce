@@ -17,7 +17,6 @@ const ProductList: React.FC<{}> = () => {
   const params = useParams();
   const specificCategoryName = params.name
 
-  //TODO
   if (specificCategoryLoading) {
     return (
       <div className="flex gap-4 sm:gap-6 lg:gap-12 xl:gap-16 2xl:gap-24 justify-center">
@@ -47,7 +46,7 @@ const ProductList: React.FC<{}> = () => {
   }
 
   return (
-    <Fragment>
+    <div className="container m-auto">
       {/* <Title title="back" hasBack={true} onClick={handleBack} /> */}
       <Breadcrumb className="mt-6"
         items={[
@@ -71,7 +70,7 @@ const ProductList: React.FC<{}> = () => {
           </Fragment>
         ))}
       </section>
-    </Fragment>
+    </div>
   );
 };
 

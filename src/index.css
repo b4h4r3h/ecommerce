@@ -40,9 +40,10 @@
   body {
     margin: 0;
     /* display: flex; */
-    place-items: center;
+    /* place-items: center; */
     min-width: 320px;
     min-height: 100vh;
+    background-color: var(--color-primary-light);
   }
 
   h1 {
@@ -228,5 +229,28 @@
     }
     button {
       background-color: #f9f9f9;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .swiper-pagination {
+      display: block;
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+      display: none;
+    }
+    .swiper-button-prev:after, .swiper-button-next:after{
+      display: none;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .swiper-pagination {
+      display: none;
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+      display: block;
     }
   }
