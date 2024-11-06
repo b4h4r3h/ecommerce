@@ -34,4 +34,4 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   // </React.StrictMode>,
 );
 
-// TODO product list loading, product card loading at home page, shadow none while hovering, fix type error in ProductDetail
+// TODO product list loading, product card loading at home page, shadow none while hovering, fix type error in ProductDetail, cart empty state

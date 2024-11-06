@@ -11,7 +11,6 @@ const HeaderComponent: React.FC = () => {
     (state: RootState) => state.cartProductsWithImage
   );
   const [isCartVisible, setIsCartVisible] = useState<Boolean>(false);
-  console.log(cartProduct, "cartEntity");
 
   const handleMouseEnterToShowCartCard = () => setIsCartVisible(true);
   const handleMouseLeaveToHideCartCard = () => setIsCartVisible(false);
@@ -34,8 +33,6 @@ const HeaderComponent: React.FC = () => {
       url: "/products/category/women's clothing",
     },
   ];
-
-  console.log("cartProduct",cartProduct)
 
   return (
     <>
@@ -77,19 +74,31 @@ const HeaderComponent: React.FC = () => {
           onMouseEnter={handleMouseEnterToShowCartCard}
           onMouseLeave={handleMouseLeaveToHideCartCard}
         >
-          {cartProduct.length > 0
-            ? cartProduct?.map((item, i) => (
-                <CartCard
+          {cartProduct.length > 0 ? (
+            cartProduct?.map((item, i) => (
+              <CartCard
                 key={i}
                 imageClassName="w-14 min-w-14 h-16"
-                parentClassName={`flex gap-4 items-center pb-4${cartProduct.length - i == 1 ? "" : " border-b border-b-gray-low"}`}
+                parentClassName={`flex gap-4 items-center pb-4${
+                  cartProduct.length - i == 1
+                    ? ""
+                    : " border-b border-b-gray-low"
+                }`}
                 src={item.image}
                 title={item.title}
                 price={item.price}
                 quantity={item.products[0].quantity}
-                />
-              ))
-            : ""}
+                productId = {item.products[0].productId}
+              />
+            ))
+          ) : (
+            <div className="flex flex-col items-center px-6">
+              <div className="bg-gray-light flex items-center p-4 rounded-[2rem] mt-4">
+                <span className="icon-[solar--cart-cross-outline] text-3xl text-text-grade3"></span>
+              </div>
+              <p>Cart is empty</p>
+            </div>
+          )}
         </div>
       )}
     </>

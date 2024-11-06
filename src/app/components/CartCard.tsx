@@ -1,6 +1,7 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../store/store";
 import ImageComponent from "./ImageComponent";
+import { productIncreament, productDecreament } from "../../features/cart/cartProductsWithImage";
 
 const CartCard: React.FC<{
   imageClassName?: string | undefined;
@@ -9,13 +10,25 @@ const CartCard: React.FC<{
   title: string | null;
   price: number | null;
   quantity: number | null;
-
-}> = ({ imageClassName, parentClassName, src, title, price, quantity }) => {
+  productId: number | null
+}> = ({ imageClassName, parentClassName, src, title, price, quantity, productId }) => {
   const cartProduct = useSelector(
     (state: RootState) => state.cartProductsWithImage
   );
-  console.log(cartProduct, "cartEntity");
-  console.log(quantity, "productEntity");
+
+  console.log("cartProduct",cartProduct)
+
+  const dispatch = useDispatch();
+
+  const handleAddProductToCart = (image: string | null, title: string | null, price: number | null, productId: number | null , quantity: number | null) => {
+    dispatch(productIncreament({ image, title, price, productId }));
+  };
+
+  const handleRemoveProductFromCart = ( productId: number | null , quantity: number | null) => {
+    dispatch(productDecreament({ productId, quantity }));
+  };
+
+
   return (
     <>
       {/* {cartProduct?.length > 0
@@ -28,14 +41,22 @@ const CartCard: React.FC<{
           </span>
           <span className="leading-8 text-sm font-bold">{price} $</span>
           <div className="flex items-center">
-          <span className="icon-[solar--add-circle-outline] text-3xl text-text-grade3"></span>
-          <span className="leading-8 text-sm font-bold px-6">{quantity}</span>
-          <span className="icon-[solar--minus-circle-outline] text-3xl text-text-grade3"></span>
+            <button onClick={() => handleAddProductToCart(src, title, price, productId, quantity)} >
+              <span className="icon-[solar--add-circle-outline] text-3xl text-text-grade3"></span>
+            </button>
+            <span className="leading-8 text-sm font-bold px-6">{quantity}</span>
+            <button onClick={() => handleRemoveProductFromCart(productId, quantity)}>
+              <span className="icon-[solar--minus-circle-outline] text-3xl text-text-grade3"></span>
+            </button>
           </div>
         </div>
       </div>
       {/* ))
         : ""} */}
+
+      {/* <Button onClick={() => handleAddProductToCart(productDetailData?.image,productDetailData?.title,productDetailData?.price,productDetailData?.id,1)} className="h-11 w-96 font-bold text-base" type="primary">
+            ADD TO CART - {productDetailData?.price}$
+          </Button> */}
     </>
   );
 };

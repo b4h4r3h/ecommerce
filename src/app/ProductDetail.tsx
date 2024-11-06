@@ -15,10 +15,10 @@ const ProductDetail: React.FC<{}> = () => {
   const cartProductsWithImage = useSelector((state:RootState) => state.cartProductsWithImage);
   const dispatch = useDispatch();
 
-  console.log("cartEntity",cartProductsWithImage);
+  // console.log("cartEntity",cartProductsWithImage);
 
-  const handleAddProductToCart = (image,title,price,productId,quantity) => {
-    dispatch(productIncreament({image, title, price, productId, quantity}))
+  const handleAddProductToCart = (image: string | null, title: string, price: null, productId: number, quantity: number) => {
+    dispatch(productIncreament({image, title, price, productId}))
   }
 
   if (productDetailLoading) {
