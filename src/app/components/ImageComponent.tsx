@@ -29,7 +29,7 @@ const ImageComponent: React.FC<{
   }, [src]);
 
   if (!src && isloading) {
-    return <span className="w-1 h-2 bg-black"></span>;
+    return <span className="w-20 h-20 bg-black"></span>;
   }
   if (error )
     return (

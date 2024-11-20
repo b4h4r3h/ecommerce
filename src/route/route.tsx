@@ -4,9 +4,9 @@ import LandingLayout from "../app/layout/LandingLayout";
 // import ProductDetail from "../app/ProductDetail";
 import Fallback from "../app/components/Fallback";
 
-const Home = lazy(() => import("../app/home/Home"));
-const ProductList = lazy(() => import("../app/ProductList"));
-const ProductDetail = lazy(() => import("../app/ProductDetail"));
+const Home = lazy(() => import("../app/pages/home/Home"));
+const ProductList = lazy(() => import("../app/pages/productList/ProductList"));
+const ProductDetail = lazy(() => import("../app/pages/productDetail/ProductDetail"));
 
 interface SuspenseWrapperPropType {
   component:React.LazyExoticComponent<React.ComponentType<any>>,

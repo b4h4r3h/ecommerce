@@ -11,7 +11,7 @@ export const getAllCategories = async () => {
     return data;
 }
 
-export const getProductDetail = async (id: string) => {
+export const getProductDetail = async (id: number) => {
     const {data} = await axiosInstance.get<GetAllProducts>(`products/${id}`)
     return data;
 }

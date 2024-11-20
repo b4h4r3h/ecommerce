@@ -9,6 +9,6 @@ export const useProductDetail = () => {
     return useQuery({
         queryKey: [queryKeys.product.GET_PRODUCT_DETAIL, id],
         enabled: !!id,
-        queryFn: () => getProductDetail(id as string),
+        queryFn: () => getProductDetail(Number(id)),
     })
 }

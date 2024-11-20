@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useAllCategories } from "../hooks/useAllCategories";
-import Result from "../../components/Result";
+import Result from "../../../components/Result";
 
 const CategoriesCard: React.FC = () => {
   const {

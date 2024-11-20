@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { queryKeys } from "../../../reactQueryUtilities/queryKeys";
-import { getAllCategories } from "../../../services/products";
+import { queryKeys } from "../../../../reactQueryUtilities/queryKeys";
+import { getAllCategories } from "../../../../services/products";
 
 export const useAllCategories = () => {
     return useQuery({

@@ -1,9 +1,7 @@
 import { Fragment } from "react/jsx-runtime";
-import ProductCard from "./components/ProductCard";
-import { useSpecificCategory } from "./hooks/useSpecificCategory";
-import Result from "./components/Result";
-import { useNavigate } from "react-router-dom";
-import Title from "./components/Title";
+import ProductCard from "../../components/ProductCard";
+import { useSpecificCategory } from "../../hooks/useSpecificCategory";
+import Result from "../../components/Result";
 import { Breadcrumb } from "antd";
 import { useParams } from "react-router-dom";
 

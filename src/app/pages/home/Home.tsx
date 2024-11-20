@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAllProducts } from "./hooks/useAllProducts";
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../../components/ProductCard";
 import BannerSwiper from "./bannerSwiper/BannerSwiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -8,9 +8,9 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Pagination, Navigation } from "swiper/modules";
 import CategoriesCard from "./components/CategoriesCard";
-import Result from "../components/Result";
-import Title from "../components/Title";
-import "../../index.css";
+import Result from "../../components/Result";
+import Title from "../../components/Title";
+import "../../../index.css";
 
 const Home: React.FC = () => {
 

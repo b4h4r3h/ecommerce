@@ -1,4 +1,4 @@
-import firstBannerImg from "../../../assets/image/first-banner-img.png"
+import firstBannerImg from "../../../../assets/image/first-banner-img.png"
 import { Link } from "react-router-dom"
 const FirstBanner: React.FC = () => {
     return (

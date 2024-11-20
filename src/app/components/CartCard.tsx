@@ -16,8 +16,6 @@ const CartCard: React.FC<{
     (state: RootState) => state.cartProductsWithImage
   );
 
-  console.log("cartProduct",cartProduct)
-
   const dispatch = useDispatch();
 
   const handleAddProductToCart = (image: string | null, title: string | null, price: number | null, productId: number | null , quantity: number | null) => {
