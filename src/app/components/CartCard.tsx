@@ -21,13 +21,14 @@ const CartCard: React.FC<{
   const dispatch = useDispatch();
 
   const handleAddProductToCart = (image: string | null, title: string | null, price: number | null, productId: number | null , quantity: number | null) => {
-    dispatch(productIncreament({ image, title, price, productId }));
+    dispatch(productIncreament({ image, title, price, 
+      
+     }));
   };
 
   const handleRemoveProductFromCart = ( productId: number | null , quantity: number | null) => {
     dispatch(productDecreament({ productId, quantity }));
   };
-
 
   return (
     <>

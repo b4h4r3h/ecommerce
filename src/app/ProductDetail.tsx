@@ -3,7 +3,7 @@ import ImageComponent from "./components/ImageComponent";
 import { useProductDetail } from "./hooks/useProductDetail";
 import { Tag, Button, Breadcrumb } from "antd";
 import { RootState } from "./store/store";
-import { productIncreament } from "../features/cart/cartProductsWithImage";
+import { productIncreament,productDecreament } from "../features/cart/cartProductsWithImage";
 
 const ProductDetail: React.FC<{}> = () => {
   const {
@@ -15,10 +15,14 @@ const ProductDetail: React.FC<{}> = () => {
   const cartProductsWithImage = useSelector((state:RootState) => state.cartProductsWithImage);
   const dispatch = useDispatch();
 
-  // console.log("cartEntity",cartProductsWithImage);
+  console.log("cartProductsWithImage",cartProductsWithImage);
 
-  const handleAddProductToCart = (image: string | null, title: string, price: null, productId: number, quantity: number) => {
+  const handleAddProductToCart = (image: string | null, title: string, price: null, productId: number) => {
     dispatch(productIncreament({image, title, price, productId}))
+  }
+
+  const handleDecrease = (productId: number) => {
+    dispatch(productDecreament({productId}))
   }
 
   if (productDetailLoading) {
@@ -97,9 +101,12 @@ const ProductDetail: React.FC<{}> = () => {
           {/* <p className="text-text-dark font-bold text-xl">
           {productDetailData?.price}$
         </p> */}
-          <Button onClick={() => handleAddProductToCart(productDetailData?.image,productDetailData?.title,productDetailData?.price,productDetailData?.id,1)} className="h-11 w-96 font-bold text-base" type="primary">
+          <Button onClick={() => handleAddProductToCart(productDetailData?.image,productDetailData?.title,productDetailData?.price,productDetailData?.id)} className="h-11 w-96 font-bold text-base" type="primary">
             ADD TO CART - {productDetailData?.price}$
           </Button>
+          <button onClick={() => handleDecrease(productDetailData?.id)}>
+            kaaaaaaaaaaaaaaam
+          </button>
         </div>
       </div>
     </div>
