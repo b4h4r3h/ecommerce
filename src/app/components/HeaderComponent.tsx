@@ -67,12 +67,12 @@ const HeaderComponent: React.FC = () => {
         </Link>
       </div>
 
-      {/* {isCartVisible && ( */}
+      {isCartVisible && (
         <div
           className="absolute gap-4 flex top-14 p-4 right-10 bg-white items-center
           rounded-lg shadow-buttonShadow border border-text-dark flex-col "
-          // onMouseEnter={handleMouseEnterToShowCartCard}
-          // onMouseLeave={handleMouseLeaveToHideCartCard}
+          onMouseEnter={handleMouseEnterToShowCartCard}
+          onMouseLeave={handleMouseLeaveToHideCartCard}
         >
           {cartProduct.length > 0 ? (
             cartProduct?.map((item, i) => (
@@ -82,7 +82,7 @@ const HeaderComponent: React.FC = () => {
                 parentClassName={`flex gap-4 items-center pb-4${
                   cartProduct.length - i == 1
                     ? ""
-                    : " border-b border-b-gray-low"
+                    : " border-b border-b-text-dark"
                 }`}
                 src={item.image}
                 title={item.title}
@@ -100,7 +100,7 @@ const HeaderComponent: React.FC = () => {
             </div>
           )}
         </div>
-      {/* )} */}
+      )}
     </>
   );
 };

@@ -2,10 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 interface cartProductsWithImage {
-  image: string;
-  title: string;
-  price: number;
-  productId: number;
+  image: string | null;
+  title: string | null;
+  price: number | null;
+  productId: number | null;
   quantity: number;
 }
 
@@ -18,10 +18,10 @@ export const CartProductsWithImageSlice = createSlice({
     productIncreament: (
       state,
       action: PayloadAction<{
-        image: string;
-        title: string;
-        price: number;
-        productId: number;
+        image: string | null;
+        title: string | null;
+        price: number | null;
+        productId: number | null;
       }>
     ) => {
 
@@ -44,7 +44,7 @@ export const CartProductsWithImageSlice = createSlice({
     productDecreament: (
       state,
       action: PayloadAction<{
-        productId: number
+        productId: number | null
       }>
     ) => {
       const cartItem = state.find(

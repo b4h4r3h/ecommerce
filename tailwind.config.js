@@ -25,7 +25,8 @@ export default {
         "success-light": "var(--color-success-light)",
       },
       boxShadow: {
-        "buttonShadow": "5px 5px 0 0 #000000",
+        "buttonShadow": "7px 7px 0 0 #000000",
+        "lightShadow": "2px 2px 0 0 #000000",
         "loadingCardShadow": "5px 5px 0 0 #bdbdbd",
         "errorBoxShadow": "5px 5px 0 0 #CC1D1D"
       }

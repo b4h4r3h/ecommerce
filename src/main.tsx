@@ -22,7 +22,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           Button: {
             primaryColor:"#111111",
             colorPrimaryTextHover: "#111111",
-            primaryShadow: "5px 5px 0 0 #000000"
+            primaryShadow: "7px 7px 0 0 #000000"
           },
         },
       }}
