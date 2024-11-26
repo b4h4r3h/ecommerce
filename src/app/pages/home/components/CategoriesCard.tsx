@@ -48,7 +48,7 @@ const CategoriesCard: React.FC = () => {
           case "electronics":
             content = (
               <>
-                <Link to="products/category/electronics" className="bg-green-100 inline-block p-2 sm:p-3 lg:p-5 shadow-buttonShadow border-2 border-text-dark rounded-xl">
+                <Link to="products/category/electronics" className="bg-green-100 inline-block p-2 sm:p-3 lg:p-5 shadow-buttonShadow border-2 border-text-dark rounded-xl hover:shadow-lightShadow hover:translate-x-1 hover:translate-y-1">
                   <span
                     className="block icon-[solar--display-outline] text-green-800 w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14"
                   ></span>
@@ -60,7 +60,7 @@ const CategoriesCard: React.FC = () => {
           case "jewelery":
             content = (
               <>
-                <Link to="products/category/jewelery" className="bg-rose-100 inline-block p-2 sm:p-3 lg:p-5 shadow-buttonShadow border-2 border-text-dark rounded-xl">
+                <Link to="products/category/jewelery" className="bg-rose-100 inline-block p-2 sm:p-3 lg:p-5 shadow-buttonShadow border-2 border-text-dark rounded-xl hover:shadow-lightShadow hover:translate-x-1 hover:translate-y-1">
                   <span
                     className="block icon-[solar--crown-outline] text-rose-600 w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14"
                   ></span>
@@ -72,7 +72,7 @@ const CategoriesCard: React.FC = () => {
           case "men's clothing":
             content = (
               <>
-                <Link to="products/category/men's clothing" className="bg-sky-100 inline-block p-2 sm:p-3 lg:p-5 shadow-buttonShadow border-2 border-text-dark rounded-xl">
+                <Link to="products/category/men's clothing" className="bg-sky-100 inline-block p-2 sm:p-3 lg:p-5 shadow-buttonShadow border-2 border-text-dark rounded-xl hover:shadow-lightShadow hover:translate-x-1 hover:translate-y-1">
                   <span
                     className="block icon-[solar--t-shirt-outline] text-sky-800 w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14"
                   ></span>
@@ -84,7 +84,7 @@ const CategoriesCard: React.FC = () => {
           case "women's clothing":
             content = (
               <>
-                <Link to="products/category/women's clothing" className="bg-fuchsia-100 inline-block p-2 sm:p-3 lg:p-5 shadow-buttonShadow border-2 border-text-dark rounded-xl">
+                <Link to="products/category/women's clothing" className="bg-fuchsia-100 inline-block p-2 sm:p-3 lg:p-5 shadow-buttonShadow border-2 border-text-dark rounded-xl hover:shadow-lightShadow hover:translate-x-1 hover:translate-y-1">
                   <span
                     className="block icon-[solar--skirt-outline] text-fuchsia-800 w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14"
                   ></span>

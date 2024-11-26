@@ -28,6 +28,28 @@
     --color-success-light: #f0fff0;
   }
 
+  /* scrollbar width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* scrollbar Track */
+::-webkit-scrollbar-track {
+  background: var(--color-gray-low); 
+  border-radius: 16px;
+}
+ 
+/* scrollbar Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--color-text-grade3); 
+  border-radius: 16px;
+}
+
+/* scrollbar Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
   a {
     font-weight: 500;
     color: #646cff;

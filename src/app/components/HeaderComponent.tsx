@@ -14,6 +14,11 @@ const HeaderComponent: React.FC = () => {
 
   const handleMouseEnterToShowCartCard = () => setIsCartVisible(true);
   const handleMouseLeaveToHideCartCard = () => setIsCartVisible(false);
+  const cartTotalPriceInitialValue: number = 0;
+  const cartTotalPrice = cartProduct.reduce(
+    (accumulator, currentValue) => accumulator + currentValue.unitPrice,
+    cartTotalPriceInitialValue
+  ).toFixed(2);
 
   const navItems = [
     {
@@ -54,9 +59,13 @@ const HeaderComponent: React.FC = () => {
         <button
           onMouseEnter={handleMouseEnterToShowCartCard}
           onMouseLeave={handleMouseLeaveToHideCartCard}
-          className="flex items-center bg-transparent py-0 px-4 border-l border-l-text-dark rounded-none"
+          className="flex items-center bg-transparent py-0 px-4 border-l border-l-text-dark rounded-none relative"
         >
-          <span className="icon-[solar--cart-large-2-outline] text-2xl text-text-dark"></span>
+            <div className="absolute bg-primary flex items-center justify-center w-5 h-5 max-h-5 max-w-5 z-10 top-8 right-7 rounded-sm border border-white">
+              <span className="text-text-dark text-xs">{cartProduct.length}</span>
+            </div>
+          <span className="icon-[solar--cart-large-2-outline] text-2xl text-text-dark">
+          </span>
         </button>
         <Link
           className="flex items-center gap-2 border-r border-l border-text-dark px-4"
@@ -68,38 +77,48 @@ const HeaderComponent: React.FC = () => {
       </div>
 
       {isCartVisible && (
-        <div
-          className="absolute gap-4 flex top-14 p-4 right-10 bg-white items-center
-          rounded-lg shadow-buttonShadow border border-text-dark flex-col "
-          onMouseEnter={handleMouseEnterToShowCartCard}
-          onMouseLeave={handleMouseLeaveToHideCartCard}
-        >
-          {cartProduct.length > 0 ? (
-            cartProduct?.map((item, i) => (
-              <CartCard
-                key={i}
-                imageClassName="w-14 min-w-14 h-16"
-                parentClassName={`flex gap-4 items-center pb-4${
-                  cartProduct.length - i == 1
-                    ? ""
-                    : " border-b border-b-text-dark"
-                }`}
-                src={item.image}
-                title={item.title}
-                price={item.price}
-                quantity={item.quantity}
-                productId = {item.productId}
-              />
-            ))
-          ) : (
-            <div className="flex flex-col items-center px-6">
-              <div className="bg-gray-light flex items-center p-4 rounded-[2rem] mt-4">
-                <span className="icon-[solar--cart-cross-outline] text-3xl text-text-grade3"></span>
-              </div>
-              <p>Cart is empty</p>
+      <div 
+      onMouseEnter={handleMouseEnterToShowCartCard}
+      onMouseLeave={handleMouseLeaveToHideCartCard}
+      className="absolute flex top-14 px-2 pt-2 right-10 bg-white items-center rounded-lg shadow-buttonShadow border border-text-dark flex-col">
+      <div
+        className=" max-h-96 overflow-y-auto px-2"
+      >
+        {cartProduct.length > 0 ? (
+          cartProduct?.map((item, i) => (
+            <CartCard
+              key={i}
+              imageClassName="w-14 min-w-14 h-16"
+              parentClassName={`flex gap-4 items-center py-4${
+                cartProduct.length - i == 1
+                  ? ""
+                  : " border-b border-b-text-gray-middle"
+              }`}
+              src={item.image}
+              title={item.title}
+              price={item.price}
+              quantity={item.quantity}
+              productId={item.productId}
+            />
+          ))
+        ) : (
+          <div className="flex flex-col items-center px-6 w-full">
+            <div className="bg-gray-light flex items-center p-4 rounded-[2rem] mt-4">
+              <span className="icon-[solar--cart-cross-outline] text-3xl text-text-grade3"></span>
             </div>
-          )}
-        </div>
+            <p>Cart is empty</p>
+          </div>
+        )}
+      </div>
+      {Number(cartTotalPrice) > 0 && (
+          <div className="flex items-center justify-between py-3 px-2 w-full bottom-2 bg-white border-t border-t-text-dark">
+            <span className="leading-normal">Total Price:</span>
+            <span className="leading-normal font-bold text-lg">
+              {cartTotalPrice}
+            </span>
+          </div>
+        )}
+      </div>
       )}
     </>
   );

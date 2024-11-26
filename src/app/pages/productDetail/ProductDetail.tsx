@@ -1,9 +1,6 @@
-import { useDispatch, useSelector } from "react-redux";
 import ImageComponent from "../../components/ImageComponent";
 import { useProductDetail } from "../../hooks/useProductDetail";
-import { Tag, Button, Breadcrumb } from "antd";
-import { RootState } from "../../store/store";
-import { productIncreament,productDecreament } from "../../../features/cart/cartProductsWithImage";
+import { Tag, Breadcrumb } from "antd";
 import AddToCartButton from "./AddToCartButton";
 
 const ProductDetail: React.FC<{}> = () => {
@@ -86,13 +83,12 @@ const ProductDetail: React.FC<{}> = () => {
               Purchase Count: {productDetailData?.rating?.count}
             </span>
           </div>
-
-        {
-          productDetailData &&
-          <AddToCartButton
-          productDetailData = {productDetailData}
-          />
-        }
+          <div className="flex items-center flex-col w-fit">
+            <p className="text-base font-bold mb-2">{productDetailData?.price} $</p>
+            {productDetailData && (
+              <AddToCartButton productDetailData={productDetailData} />
+            )}
+          </div>
         </div>
       </div>
     </div>

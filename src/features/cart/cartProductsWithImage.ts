@@ -2,11 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 interface cartProductsWithImage {
-  image: string | null;
-  title: string | null;
-  price: number | null;
-  productId: number | null;
+  image: string;
+  title: string;
+  price: number;
+  productId: number;
   quantity: number;
+  unitPrice: number;
 }
 
 const initialState: cartProductsWithImage[] = [];
@@ -18,10 +19,10 @@ export const CartProductsWithImageSlice = createSlice({
     productIncreament: (
       state,
       action: PayloadAction<{
-        image: string | null;
-        title: string | null;
-        price: number | null;
-        productId: number | null;
+        image: string ;
+        title: string ;
+        price: number ;
+        productId: number ;
       }>
     ) => {
 
@@ -31,12 +32,15 @@ export const CartProductsWithImageSlice = createSlice({
 
       if (cartItem) {
         cartItem.quantity += 1
+        // cartItem.price += action.payload.price
+        cartItem.unitPrice = +(cartItem.price * cartItem.quantity).toFixed(2)
       } else {
         state.push({
           image: action.payload.image,
           title: action.payload.title,
           price: action.payload.price,
           productId: action.payload.productId,
+          unitPrice: action.payload.price,
           quantity: 1,
         });
       }
@@ -44,13 +48,15 @@ export const CartProductsWithImageSlice = createSlice({
     productDecreament: (
       state,
       action: PayloadAction<{
-        productId: number | null
+        productId: number;
+        price: number;
       }>
     ) => {
       const cartItem = state.find(
         (product) => product.productId === action.payload.productId);
       if ( cartItem && cartItem.quantity > 1) {
         cartItem.quantity -= 1
+        cartItem.unitPrice = +(cartItem.price * cartItem.quantity).toFixed(2)
       } 
       else {
         const restOfCart = state.filter((product) => product.productId !== action.payload.productId);
