@@ -178,6 +178,19 @@
   .cart__wheel-stroke {
     animation-name: cartWheelStroke
   }
+
+  .ant-menu-horizontal .ant-menu-item {
+    white-space: nowrap;
+    overflow: visible;
+  }
+
+  .ant-menu-light.ant-menu-horizontal >.ant-menu-item {
+    top:0
+  }
+
+  .ant-menu-light{
+    background: none;
+  }
   
   /* Animations */
   @keyframes msg {

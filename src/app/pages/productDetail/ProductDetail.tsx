@@ -1,4 +1,5 @@
-import ImageComponent from "../../components/ImageComponent";
+// import ImageComponent from "../../components/ImageComponent";
+import ImageComponent from "@/app/components/ImageComponent";
 import { useProductDetail } from "../../hooks/useProductDetail";
 import { Tag, Breadcrumb } from "antd";
 import AddToCartButton from "./AddToCartButton";
